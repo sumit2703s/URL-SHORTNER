@@ -461,10 +461,7 @@
      * If the placeholder was NOT replaced (local dev), fall back
      * to http://localhost:8000.
      */
-    const _RAW_API_URL = "__API_URL__";
-    const API_URL = _RAW_API_URL.includes("__API_URL__")
-      ? "http://localhost:8000"
-      : _RAW_API_URL.replace(/\/+$/, "");
+    const API_URL = "https://url-shortener-api-aya1.onrender.com";
 
     /* ── DOM Elements ─────────────────────────────── */
     const urlInput    = document.getElementById('url-input');
