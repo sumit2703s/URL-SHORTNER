@@ -1,11 +1,8 @@
 {
-  "buildCommand": "sed -i 's|__API_URL__|'\"$VITE_API_URL\"'|g' index.html",
+  "buildCommand": "sed -i 's|__API_URL__|https://url-shortener-api-aya1.onrender.com|g' index.html",
   "outputDirectory": ".",
   "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "env": {
-    "VITE_API_URL": { "required": true }
-  }
+  ]
 }
