@@ -1,0 +1,11 @@
+{
+  "buildCommand": "sed -i 's|__API_URL__|'\"$VITE_API_URL\"'|g' index.html",
+  "outputDirectory": ".",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "env": {
+    "VITE_API_URL": { "required": true }
+  }
+}

@@ -1,0 +1,31 @@
+services:
+  # ── Web Service (FastAPI backend) ──────────────────────────────
+  - type: web
+    name: url-shortener-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: REDIS_HOST
+        fromService:
+          type: redis
+          name: url-shortener-redis
+          property: host
+      - key: REDIS_PORT
+        fromService:
+          type: redis
+          name: url-shortener-redis
+          property: port
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: BASE_URL
+        sync: false
+    healthCheckPath: /health
+
+  # ── Redis Service ──────────────────────────────────────────────
+  - type: redis
+    name: url-shortener-redis
+    plan: free
+    maxmemoryPolicy: allkeys-lru
+    ipAllowList: []
